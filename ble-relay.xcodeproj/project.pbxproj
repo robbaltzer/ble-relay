@@ -13,6 +13,7 @@
 		D48EBC842343B6F2000BF74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48EBC832343B6F2000BF74C /* Assets.xcassets */; };
 		D48EBC872343B6F2000BF74C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48EBC862343B6F2000BF74C /* Preview Assets.xcassets */; };
 		D48EBC8A2343B6F2000BF74C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48EBC882343B6F2000BF74C /* LaunchScreen.storyboard */; };
+		D4BBB3962343FE8D009D4A10 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BBB3952343FE8D009D4A10 /* Relay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D48EBC862343B6F2000BF74C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D48EBC892343B6F2000BF74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D48EBC8B2343B6F2000BF74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4BBB3952343FE8D009D4A10 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				D48EBC7D2343B6F1000BF74C /* AppDelegate.swift */,
-				D48EBC7F2343B6F1000BF74C /* SceneDelegate.swift */,
 				D48EBC812343B6F1000BF74C /* ContentView.swift */,
+				D4BBB3952343FE8D009D4A10 /* Relay.swift */,
+				D48EBC7F2343B6F1000BF74C /* SceneDelegate.swift */,
 				D48EBC832343B6F2000BF74C /* Assets.xcassets */,
 				D48EBC882343B6F2000BF74C /* LaunchScreen.storyboard */,
 				D48EBC8B2343B6F2000BF74C /* Info.plist */,
@@ -149,6 +152,7 @@
 				D48EBC7E2343B6F1000BF74C /* AppDelegate.swift in Sources */,
 				D48EBC802343B6F1000BF74C /* SceneDelegate.swift in Sources */,
 				D48EBC822343B6F1000BF74C /* ContentView.swift in Sources */,
+				D4BBB3962343FE8D009D4A10 /* Relay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

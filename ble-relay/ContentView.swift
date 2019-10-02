@@ -18,18 +18,21 @@ struct ContentView: View {
 }
 
 struct FormView : View {
+    @EnvironmentObject var relay: Relay
+
     var body: some View {
-        
+    
         Form {
             Section {
                 HStack {
                     Text("Value:")
-                    Text("444") // TODO: Put relayed value here
+                    Text("\(self.relay.count)") // TODO: Put relayed value here
                 }
             }
             
             Section {
                 Button(action: {
+                    self.relay.setToEleven()
                 // TODO: Start sending packets, toggle button
                 }) { Text("Start")}
             }
