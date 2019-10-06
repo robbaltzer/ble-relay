@@ -18,22 +18,24 @@ struct ContentView: View {
 }
 
 struct FormView : View {
-    @EnvironmentObject var relay: Relay
-
+    @EnvironmentObject var centralRelay: CentralRelay
+    @State private var isPeripheralMode = true
+    
     var body: some View {
     
         Form {
             Section {
                 HStack {
                     Text("Value:")
-                    Text("\(self.relay.count)") // TODO: Put relayed value here
+                    Text("\(self.centralRelay.count)") // TODO: Put relayed value here
                 }
             }
             
             Section {
                 Button(action: {
-                    self.relay.setToEleven()
-                // TODO: Start sending packets, toggle button
+                    self.centralRelay.setToEleven()
+                    
+                // TODO: Start sending packets, fire up the correct manager based on toggle button
                 }) { Text("Start")}
             }
             
@@ -41,6 +43,12 @@ struct FormView : View {
                 HStack {
                     Text("Status:")
                     Text("Connected")
+                }
+            }
+            
+            Section {
+                Toggle(isOn: $isPeripheralMode) {
+                    Text("Select peripheral mode")
                 }
             }
             

@@ -8,12 +8,13 @@
 
 import CoreBluetooth
 
-class Relay: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate {
+class CentralRelay: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var centralManager: CBCentralManager!
     var remoteDevice: CBPeripheral?
     
-    let serviceUUID = CBUUID(string: "780A")
-    let countCharacteristicUUID = CBUUID(string: "8AA2")
+    // Custom service and characteristic UUIDs generated using `uuidgen`
+    let serviceUUID = CBUUID(string: "FDB424BE-4458-485A-9F43-1E7048B00ABB")
+    let countCharacteristicUUID = CBUUID(string: "ADBE0057-4EC9-40EC-8C68-DC46C3853678")
     
     @Published var count = 0
     
@@ -24,6 +25,7 @@ class Relay: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralD
     }
 
     //MARK: - Central manager delegate
+    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
             centralManager.scanForPeripherals(withServices: [serviceUUID], options: nil)
@@ -42,6 +44,7 @@ class Relay: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralD
     }
     
     //MARK: - Peripheral delegate
+    
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let service = peripheral.services?.first(where: { $0.uuid == serviceUUID }) {
             peripheral.discoverCharacteristics([countCharacteristicUUID], for: service)
