@@ -12,5 +12,5 @@ class PeripheralRelay: NSObject {
     var peripheralManager: CBPeripheralManager!
     var central: CBCentral?
     
-    
+    // TODO: Fill out the rest
 }

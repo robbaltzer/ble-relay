@@ -18,8 +18,9 @@ struct ContentView: View {
 }
 
 struct FormView : View {
-    @EnvironmentObject var centralRelay: CentralRelay
-    @State private var isPeripheralMode = true
+    @EnvironmentObject var model: Model
+    
+    var centralRelay = CentralRelay()
     
     var body: some View {
     
@@ -27,14 +28,13 @@ struct FormView : View {
             Section {
                 HStack {
                     Text("Value:")
-                    Text("\(self.centralRelay.count)") // TODO: Put relayed value here
+                    Text("\(model.count)")
                 }
             }
             
             Section {
                 Button(action: {
-                    self.centralRelay.setToEleven()
-                    
+                    self.centralRelay.setToEleven() // DEBUG: Remove later
                 // TODO: Start sending packets, fire up the correct manager based on toggle button
                 }) { Text("Start")}
             }
@@ -47,15 +47,15 @@ struct FormView : View {
             }
             
             Section {
-                Toggle(isOn: $isPeripheralMode) {
-                    Text("Select peripheral mode")
+                Toggle(isOn: $model.peripheralMode) {
+                    Text("Peripheral Mode")
                 }
             }
             
             Section {
                 NavigationLink(destination: Log()) {
                     // TODO: put log of BLE events here
-                    Text("View log")
+                    Text("View Log")
 
                 }
             }
